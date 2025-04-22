@@ -45,7 +45,7 @@ class DummyVerleihService extends AbstractObservableService
     /**
      * Die Methode gibt den Entleiher vom Medium zurück
      * @param medium ist das entliehene Medium
-     * @return ENTLEIHER ist der Entleiher
+     * @return ENTLEIHER ist die Klassenvariabele 
      */
     @Override
     public Kunde getEntleiherFuer(Medium medium)
