@@ -30,7 +30,7 @@ class DummyVerleihService extends AbstractObservableService
     }
 
     /**
-     * Die Methode die Klassenvariable MEDIUM zu der Liste hinzu. 
+     * Die Methode erstellt beim jeden Aufruf eine neue Liste und fügt die Klassenvariable MEDIUM zu der Liste hinzu. 
      * @param kunde ist der Kunde
      * @return ergebnisListe ist die ergänzte Liste
      */
