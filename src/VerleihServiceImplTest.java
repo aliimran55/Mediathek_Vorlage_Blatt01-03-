@@ -1,3 +1,4 @@
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -63,8 +64,16 @@ public class VerleihServiceImplTest
     }
 
     @Test
-    public void testNochEinTestFall1()
+    public void testVerleihKartNichtVorhanden()
     {
+    	List<Medium> medien = new ArrayList<>();
+    	medien.add(_abbey);
+    	Datum datum = new Datum(23,4,2025);
+    	_verleihService.verleiheAn(_brian, medien, datum);
+    	assertTrue(_verleihService.istVerliehen(_abbey));
+    	assertTrue(_verleihService.sindAlleVerliehen(medien));
+    	assertEquals(_verleihService.getEntleiherFuer(_abbey),_brian);
+    	 
     }
 
     @Test

@@ -34,9 +34,9 @@ public interface VerleihService extends ObservableService
      * @param medien Die Medien, die verliehen werden sollen
      * @param ausleihDatum Der erste Ausleihtag
      * 
-     * @require kundeImBestand(kunde)
-     * @require sindAlleNichtVerliehen(medien)
-     * @require ausleihDatum != null
+     * @require kundeImBestand(kunde) //Wenn nicht im Bestand kann jeder sich ein Medium ausleihen
+     * @require sindAlleNichtVerliehen(medien) //Wenn kein Medium übrig ist kann der Kunde keins ausleihen 
+     * @require ausleihDatum != null //Es muss eine Frist geben, bis wann das Medium ausleihbar ist, sonst bleiben keine mehr übriig
      * 
      * @ensure sindAlleVerliehen(medien)
      */
@@ -52,8 +52,8 @@ public interface VerleihService extends ObservableService
      * @return true, wenn das entleihen für diesen Kunden möglich ist, sonst
      *         false
      * 
-     * @require kundeImBestand(kunde)
-     * @require medienImBestand(medien)
+     * @require kundeImBestand(kunde) //Wenn nicht im Bestand kann jeder sich ein Medium ausleihen
+     * @require medienImBestand(medien) //Wenn nicht im Bestand ist das Ausleihen überhaupt nicht möglich
      * 
      */
     boolean istVerleihenMoeglich(Kunde kunde, List<Medium> medien);

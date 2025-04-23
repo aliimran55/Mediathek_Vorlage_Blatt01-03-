@@ -60,13 +60,16 @@ class VerleihServiceImpl extends AbstractObservableService
     	assert kundeImBestand(kunde): "kunde ist nicht im Kundenstamm enthalten";
     	assert ausleihDatum != null: "ausleihDatum darf nicht null sein";
     	assert sindAlleNichtVerliehen(medien):"Alle Medien sind entliehen";
+    	
 	    for (Medium medium : medien)
 	    {
 	        Verleihkarte karte = new Verleihkarte(kunde, medium, ausleihDatum);
+	        _verleihkarten.put(medium, karte);
 	
 	    }
 	
 	    informiereUeberAenderung();
+	    
 	}
 
     
@@ -83,10 +86,11 @@ class VerleihServiceImpl extends AbstractObservableService
 	
 	
 	
+	
 	@Override
 	public Kunde getEntleiherFuer(Medium medium)
 	{
-		assert istVerliehen(medien): "medien ist nicht verliehen"
+		assert istVerliehen(medium): "medien ist nicht verliehen";
 	    Verleihkarte verleihkarte = _verleihkarten.get(medium);
 	    return verleihkarte.getEntleiher();
 	}
@@ -118,7 +122,7 @@ class VerleihServiceImpl extends AbstractObservableService
 	@Override
     public List<Verleihkarte> getVerleihkarten()
     {
-		assert result != null: "result darf nicht null sein";
+		
         return new ArrayList<Verleihkarte>(_verleihkarten.values());
     }
 
