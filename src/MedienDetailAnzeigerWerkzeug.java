@@ -48,6 +48,11 @@ class MedienDetailAnzeigerWerkzeug
                 DVD dvd = (DVD) medium;
                 selectedMedienTextArea.append(dvd.getFormatiertenString());
             }
+            else if (medium instanceof Videospiel)
+            {
+                Videospiel vs = (Videospiel) medium;
+                selectedMedienTextArea.append(vs.getFormatiertenString());
+            }
         }
     }
 
