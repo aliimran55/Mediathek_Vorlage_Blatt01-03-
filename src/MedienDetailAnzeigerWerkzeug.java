@@ -29,6 +29,7 @@ class MedienDetailAnzeigerWerkzeug
      * 
      * @require (medien != null)
      */
+    /*
     public void setMedien(List<Medium> medien)
     {
         assert medien != null : "Vorbedingung verletzt: (medien != null)";
@@ -53,9 +54,21 @@ class MedienDetailAnzeigerWerkzeug
                 Videospiel vs = (Videospiel) medium;
                 selectedMedienTextArea.append(vs.getFormatiertenString());
             }
+        } 
+       
+    }*/
+    
+    
+    public void setMedien(List<Medium> medien)
+    {
+        assert medien != null : "Vorbedingung verletzt: (medien != null)";
+        JTextArea selectedMedienTextArea = _ui.getMedienAnzeigerTextArea();
+        selectedMedienTextArea.setText("");
+        for (Medium medium : medien)
+        {
+            selectedMedienTextArea.append(medium.getFormatiertenString());
         }
     }
-
     /**
      * Gibt das Panel dieses Subwerkzeugs zurück.
      * 
